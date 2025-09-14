@@ -12,15 +12,11 @@ router.get('/', async (req, res, next) => {
 })
 
 router.get('/:id', mw.checkAccountId, async (req, res, next) => {
-  try {
-    const accounts = await Account.getById(req.params.id)
-    res.json(accounts)
-  } catch (err) {
-    next( {status: 422, message: 'no account with that Id'} )
-  }
+  res.json(req.account)
 })
 
-router.post('/', 
+router.post(
+  '/', 
   mw.checkAccountPayload, 
   mw.checkAccountNameUnique, 
   (req, res, next) => {

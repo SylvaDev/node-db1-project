@@ -1,12 +1,10 @@
 const db = require('../../data/db-config');
 
 const getAll = () => {
-  // select * from accounts;
   return db('accounts');
 }
 
 const getById = id => {
-  // select * from accounts where accountid = id
   return db('accounts').where('id', id)
 }
 
