@@ -1,11 +1,13 @@
 const db = require('../../data/db-config');
 
 const getAll = () => {
-  
+  // select * from accounts;
+  return db('accounts');
 }
 
 const getById = id => {
-  // DO YOUR MAGIC
+  // select * from accounts where accountid = id
+  return db('accounts').where('id', id)
 }
 
 const create = account => {
