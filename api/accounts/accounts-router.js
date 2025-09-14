@@ -11,7 +11,7 @@ router.get('/', async (req, res, next) => {
   }
 })
 
-router.get('/:id', mw.checkAccountId, async (req, res, next) => {
+router.get('/:id', mw.checkAccountId, async (req, res, next) => { // eslint-disable-line
   res.json(req.account)
 })
 
