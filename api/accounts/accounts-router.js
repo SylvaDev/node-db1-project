@@ -30,11 +30,11 @@ router.post(
 
 router.put('/:id', 
   mw.checkAccountId, 
-  mw.checkAccountNameUnique, 
   mw.checkAccountPayload, 
-  (req, res, next) => {
+  async (req, res, next) => {
+    const updated = await Account.updateById(req.params.id, req.body)
   try {
-    res.json('edit accounts by id')
+    res.json(updated)
   } catch (err) {
     next(err)
   }
