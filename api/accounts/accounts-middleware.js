@@ -24,6 +24,8 @@ exports.checkAccountPayload = (req, res, next) => {
   if (error.message) {
     next(error)
   } else {
+    // Trim the name before proceeding
+    req.body.name = name.trim()
     next()
   }
 }
